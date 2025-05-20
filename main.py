@@ -1,5 +1,3 @@
-import math
-
 COLOR_GREEN = '\033[92m'
 COLOR_OKCYAN = '\033[96m'
 COLOR_OKBLUE = '\033[94m'
@@ -7,20 +5,62 @@ COLOR_WARNING = '\033[93m'
 COLOR_FAIL = '\033[91m'
 _COLOR_ENDC = '\033[0m'
 
-MIN_VALUE = -10_000
-MAX_VALUE = 10_000
-
 _EX_1 = '1'
-_EX_2 = '2'
-_EX_3 = '3'
-_EX_4 = '4'
-_EX_5 = '5'
-_EX_6 = '6'
-
-_ARRAY_EX = [_EX_1, _EX_2, _EX_3, _EX_4, _EX_5, _EX_6]
+_ARRAY_EX = [_EX_1]
 
 def get_text_color(text: str, color: str)-> str:
     return f'{color}{text}{_COLOR_ENDC}'
+
+class Book:
+    def __init__(self, title: str, author: str, pages: int):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def get_info(self) -> str:
+        return f"Название: {self.title}, Автор: {self.author}, Страниц: {self.pages}"
+
+    @staticmethod
+    def is_fantasy(title: str) -> bool:
+        title = title.lower()
+        return "фантастика" in title or "фантастическая история" in title
+
+    @classmethod
+    def create_fantasy_book(cls, title: str, author: str, pages: int):
+        return cls(f"фантастика {title}", author, pages)
+
+    def __str__(self) -> str:
+        return f"'{self.title}' - {self.author} ({self.pages} стр.)"
+
+    def __eq__(self, other) -> bool:
+        """сравнение количества страниц двух книг."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages == other.pages
+
+    def __lt__(self, other) -> bool:
+        """Сравнение: меньше ли страниц в текущей книге."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages < other.pages
+
+    def __le__(self, other) -> bool:
+        """Сравнение: меньше или равно страниц в текущей книге."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages <= other.pages
+
+    def __gt__(self, other) -> bool:
+        """Сравнение: больше ли страниц в текущей книге."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages > other.pages
+
+    def __ge__(self, other) -> bool:
+        """Сравнение: больше или равно страниц в текущей книге."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.pages >= other.pages
 
 
 
