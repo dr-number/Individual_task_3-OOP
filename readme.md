@@ -37,6 +37,18 @@
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/3-add-fantastic-book.png">
    </p>
 </figure>
+<figure>
+   <p align="center">Дубликат книги</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-book-already-exist.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Ошибка ввода</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-input.png">
+   </p>
+</figure>
 
 **Просмотр книг**
 <figure>
@@ -59,6 +71,12 @@
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/7-check-fantastic-yes.png">
    </p>
 </figure>
+<figure>
+   <p align="center">Попытка проверить несуществующую книгу</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-not-found.png">
+   </p>
+</figure>
 
 **Сравнение количества страниц**
 <figure>
@@ -69,6 +87,12 @@
 <figure>
    <p align="center">
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/9-compare-2.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Обработка ошибки при сравнении книг</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-compare.png">
    </p>
 </figure>
 
