@@ -186,9 +186,9 @@ def action_add_fantasy_book():
 def action_book_as_string():
     action_show_books()
     title = input_string("Введите название книги: ")
-    book = Book.find_by_title(f'фантастика {title}')
-    if book:
-        print(get_text_color(f"Книга 'фантастика {title}' уже есть в библиотеке!", COLOR_FAIL))
+    book = Book.find_by_title(f'{title}')
+    if not book:
+        print(get_text_color(f"Книга '{title}' не найдена!", COLOR_FAIL))
         return
     
     print("\n" + "="*50)
