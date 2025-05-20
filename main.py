@@ -26,7 +26,7 @@ class Book(Base):
     __tablename__ = 'books'
 
     id = Column(Integer, primary_key=True)
-    title = Column(String)
+    title = Column(String, unique=True)
     author = Column(String)
     pages = Column(Integer)
 
@@ -44,10 +44,14 @@ class Book(Base):
 
     @classmethod
     def create_book(cls, title: str, author: str, pages: int) -> 'Book':
-        book = cls(title=title, author=author, pages=pages)
-        session.add(book)
-        session.commit()
-        return book
+        try:
+            book = cls(title=title, author=author, pages=pages)
+            session.add(book)
+            session.commit()
+            return book
+        except Exception as e:
+            session.rollback()
+            return None
 
     @classmethod
     def create_fantasy_book(cls, title: str, author: str, pages: int) -> 'Book':
@@ -134,8 +138,10 @@ def action_add_book():
     title = input_string("Введите название книги: ")
     author = input_string("Введите автора книги: ")
     pages = int(input_number("Введите количество страниц: ", min=1, max=9999))
-    Book.create_book(title, author, pages)
-    print(get_text_color("Книга успешно добавлена!", COLOR_GREEN))
+    if Book.create_book(title, author, pages):
+        print(get_text_color("Книга успешно добавлена!", COLOR_GREEN))
+    else:
+        print(get_text_color("Книга не добавлена!", COLOR_FAIL))
 
 def action_show_books():
     books = Book.get_all_books()
@@ -160,8 +166,10 @@ def action_add_fantasy_book():
     title = input_string("Введите название книги: ")
     author = input_string("Введите автора книги: ")
     pages = int(input_number("Введите количество страниц: ", min=1, max=9999))
-    Book.create_fantasy_book(title, author, pages)
-    print(get_text_color("Фантастическая книга добавлена!", COLOR_GREEN))
+    if Book.create_fantasy_book(title, author, pages):
+        print(get_text_color("Фантастическая книга добавлена!", COLOR_GREEN))
+    else:
+        print(get_text_color("Фантастическая книга не добавлена!", COLOR_FAIL))
 
 def action_compare_books():
     action_show_books()
