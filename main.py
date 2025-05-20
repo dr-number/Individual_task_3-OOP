@@ -135,7 +135,13 @@ def input_string(text: str) -> str:
 
 
 def action_add_book():
+    action_show_books()
     title = input_string("Введите название книги: ")
+    book = Book.find_by_title(title)
+    if book:
+        print(get_text_color(f"Книга '{title}' уже есть в библиотеке!", COLOR_FAIL))
+        return
+
     author = input_string("Введите автора книги: ")
     pages = int(input_number("Введите количество страниц: ", min=1, max=9999))
     if Book.create_book(title, author, pages):
@@ -163,13 +169,33 @@ def action_check_fantasy():
         print(get_text_color("Это не фантастика.", COLOR_FAIL))
 
 def action_add_fantasy_book():
+    action_show_books()
     title = input_string("Введите название книги: ")
+    book = Book.find_by_title(f'фантастика {title}')
+    if book:
+        print(get_text_color(f"Книга 'фантастика {title}' уже есть в библиотеке!", COLOR_FAIL))
+        return
+
     author = input_string("Введите автора книги: ")
     pages = int(input_number("Введите количество страниц: ", min=1, max=9999))
     if Book.create_fantasy_book(title, author, pages):
         print(get_text_color("Фантастическая книга добавлена!", COLOR_GREEN))
     else:
         print(get_text_color("Фантастическая книга не добавлена!", COLOR_FAIL))
+
+def action_book_as_string():
+    action_show_books()
+    title = input_string("Введите название книги: ")
+    book = Book.find_by_title(f'фантастика {title}')
+    if book:
+        print(get_text_color(f"Книга 'фантастика {title}' уже есть в библиотеке!", COLOR_FAIL))
+        return
+    
+    print("\n" + "="*50)
+    print("Книга как строка:")
+    print(book)
+    print("="*50 + "\n")
+
 
 def action_compare_books():
     action_show_books()
@@ -198,7 +224,7 @@ _ARRAY_EX = {
     _EX_2: action_show_books,
     _EX_3: action_check_fantasy,
     _EX_4: action_add_fantasy_book,
-    _EX_5: lambda: print(get_text_color("Для вывода книги как строки просто используйте print(book)", COLOR_OKBLUE)),
+    _EX_5: action_book_as_string,
     _EX_6: action_compare_books
 }
 
