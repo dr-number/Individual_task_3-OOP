@@ -9,4 +9,5 @@ Activate venv:
 
 pip install -r requirements.txt
 
-start ./venv/bin/python "main.py"
+start 
+./venv/bin/python "main.py"
