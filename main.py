@@ -3,7 +3,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from typing import List, Optional
 
-# Цвета для консоли
 COLOR_GREEN = '\033[92m'
 COLOR_OKCYAN = '\033[96m'
 COLOR_OKBLUE = '\033[94m'
@@ -11,7 +10,6 @@ COLOR_WARNING = '\033[93m'
 COLOR_FAIL = '\033[91m'
 _COLOR_ENDC = '\033[0m'
 
-# Константы для меню
 _EX_1 = '1'
 _EX_2 = '2'
 _EX_3 = '3'
@@ -19,7 +17,6 @@ _EX_4 = '4'
 _EX_5 = '5'
 _EX_6 = '6'
 
-# Настройка SQLAlchemy
 Base = declarative_base()
 engine = create_engine('sqlite:///library.db', echo=False)
 Session = sessionmaker(bind=engine)
@@ -91,7 +88,6 @@ class Book(Base):
 # Создаем таблицы
 Base.metadata.create_all(engine)
 
-# Вспомогательные функции
 def get_text_color(text: str, color: str) -> str:
     return f'{color}{text}{_COLOR_ENDC}'
 
@@ -128,7 +124,8 @@ def input_string(text: str) -> str:
         else:
             return _string
 
-# Функции для меню
+
+
 def action_add_book():
     title = input_string("Введите название книги: ")
     author = input_string("Введите автора книги: ")
@@ -191,17 +188,17 @@ _ARRAY_EX = {
 def main():
     while True:
         print(f'''
-{get_text_color('Ларионов гр. 410з. Программирование на языках высокого уровня', COLOR_OKBLUE)}
-{get_text_color('Индивидуальное задание №3 ООП. Вариант 3.', COLOR_OKBLUE)}
-{get_text_color('Библиотека книг с использованием SQLAlchemy', COLOR_OKBLUE)}
+        {get_text_color('Ларионов гр. 410з. Программирование на языках высокого уровня', COLOR_OKBLUE)}
+        {get_text_color('Индивидуальное задание №3 ООП. Вариант 3.', COLOR_OKBLUE)}
+        {get_text_color('Библиотека книг с использованием SQLAlchemy', COLOR_OKBLUE)}
 
-{get_text_color(f'{_EX_1}) ', COLOR_WARNING)}Добавить книгу в библиотеку
-{get_text_color(f'{_EX_2}) ', COLOR_WARNING)}Показать все книги
-{get_text_color(f'{_EX_3}) ', COLOR_WARNING)}Проверить является ли книга фантастикой
-{get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Добавить книгу в жанре фантастика
-{get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Книга как строка
-{get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Сравнить книги
-''')
+        {get_text_color(f'{_EX_1}) ', COLOR_WARNING)}Добавить книгу в библиотеку
+        {get_text_color(f'{_EX_2}) ', COLOR_WARNING)}Показать все книги
+        {get_text_color(f'{_EX_3}) ', COLOR_WARNING)}Проверить является ли книга фантастикой
+        {get_text_color(f'{_EX_4}) ', COLOR_WARNING)}Добавить книгу в жанре фантастика
+        {get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Книга как строка
+        {get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Сравнить книги
+        ''')
         select = input('Для выхода введите \'0\'\n')
 
         if select in _ARRAY_EX:
