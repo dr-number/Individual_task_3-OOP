@@ -35,6 +35,10 @@ class Book(Base):
 
     @staticmethod
     def is_fantasy(title: str) -> bool:
+        book = session.query(Book).filter(func.lower(Book.title) == func.lower(title)).first()
+        if not book:
+            return None
+    
         title = title.lower()
         return "фантастика" in title or "фантастическая история" in title
 
@@ -142,11 +146,15 @@ def action_show_books():
             print(book)
 
 def action_check_fantasy():
+    action_show_books()
     title = input_string("Введите название книги для проверки: ")
-    if Book.is_fantasy(title):
+    is_fantasy = Book.is_fantasy(title)
+    if is_fantasy is None:
+        print(get_text_color("Книга не найдена", COLOR_FAIL))
+    elif is_fantasy:
         print(get_text_color("Это фантастика!", COLOR_GREEN))
     else:
-        print(get_text_color("Это не фантастика.", COLOR_OKBLUE))
+        print(get_text_color("Это не фантастика.", COLOR_FAIL))
 
 def action_add_fantasy_book():
     title = input_string("Введите название книги: ")
@@ -156,6 +164,7 @@ def action_add_fantasy_book():
     print(get_text_color("Фантастическая книга добавлена!", COLOR_GREEN))
 
 def action_compare_books():
+    action_show_books()
     title1 = input_string("Введите название первой книги: ")
     book1 = Book.find_by_title(title1)
     if not book1:
