@@ -44,6 +44,12 @@
    </p>
 </figure>
 <figure>
+   <p align="center">Дубликат книги жанра научная фантастика</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-fantastic-book-already-exist.png">
+   </p>
+</figure>
+<figure>
    <p align="center">Ошибка ввода</p>
    <p align="center">
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-input.png">
