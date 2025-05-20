@@ -9,6 +9,26 @@
     названия), магический метод для представления книги в виде строки,
     магический метод для сравнения количества страниц двух книг.
 
+**Добавление книг**
+<figure>
+   <p align="center">Главное меню</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/1-main-menu.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Добавляем книгу</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/2-add-book.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Добавляем книгу жанра фантастика</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/3-add-fantastic-book.png">
+   </p>
+</figure>
+
 # Create venv:
     python3 -m venv venv
 
