@@ -259,5 +259,7 @@ def main():
         else:
             print(get_text_color("Введен неверный номер задачи!", COLOR_FAIL))
 
+        input('Для продолжения нажмите любую клавишу...')
+
 if __name__ == '__main__':
     main()
