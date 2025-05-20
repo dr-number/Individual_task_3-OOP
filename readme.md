@@ -72,6 +72,12 @@
    </p>
 </figure>
 <figure>
+   <p align="center">Книга не является фантастикой</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/5-check-fantastic-not.png">
+   </p>
+</figure>
+<figure>
    <p align="center">Попытка проверить несуществующую книгу</p>
    <p align="center">
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/error-not-found.png">
