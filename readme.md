@@ -11,7 +11,7 @@
 
 **Добавление книг**
 <figure>
-   <p align="center">Главное меню</p>
+   <p align="center">Главное меню и задание</p>
    <p align="center">
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/1-main-menu.png">
    </p>
@@ -26,6 +26,28 @@
    <p align="center">Добавляем книгу жанра фантастика</p>
    <p align="center">
       <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/3-add-fantastic-book.png">
+   </p>
+</figure>
+
+**Просмотр книг**
+<figure>
+   <p align="center">Книги и БД</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/4-show-all-books.png">
+   </p>
+</figure>
+
+**Является ли книга фантастикой**
+<figure>
+   <p align="center">Книга не найдена и не является фантастикой</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/6-check-fantastic-not.png">
+   </p>
+</figure>
+<figure>
+   <p align="center">Книга является фантастикой</p>
+   <p align="center">
+      <img src="https://github.com/dr-number/Individual_task_3-OOP/blob/main/for_readme/7-check-fantastic-yes.png">
    </p>
 </figure>
 
