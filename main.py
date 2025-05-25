@@ -147,7 +147,9 @@ def action_add_book():
     else:
         print(get_text_color("Книга не добавлена!", COLOR_FAIL))
 
-def action_show_books():
+def action_show_books(is_show_title: bool = True):
+    if is_show_title:
+        print(get_text_color('Книги которые уже есть в библиотеке:', COLOR_GREEN))    
     books = Book.get_all_books()
     if not books:
         print(get_text_color("В библиотеке нет книг!", COLOR_WARNING))
