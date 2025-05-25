@@ -93,7 +93,6 @@ class Book(Base):
             return NotImplemented
         return self.pages >= other.pages
 
-# Создаем таблицы
 Base.metadata.create_all(engine)
 
 def get_text_color(text: str, color: str) -> str:
@@ -131,8 +130,6 @@ def input_string(text: str) -> str:
             print(get_text_color("Текст не должен быть пустым!", COLOR_FAIL))
         else:
             return _string
-
-
 
 def action_add_book():
     action_show_books()
@@ -196,7 +193,6 @@ def action_book_as_string():
     print(book)
     print("="*50 + "\n")
 
-
 def action_compare_books():
     action_show_books()
     title1 = input_string("Введите название первой книги: ")
@@ -218,7 +214,6 @@ def action_compare_books():
     else:
         print(get_text_color(f"Обе книги имеют одинаковое количество страниц", COLOR_OKCYAN))
 
-# Меню действий
 _ARRAY_EX = {
     _EX_1: action_add_book,
     _EX_2: action_show_books,
@@ -250,14 +245,12 @@ def main():
         {get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Книга как строка
         {get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Сравнить книги
         ''')
-        select = input('Для выхода введите \'0\'\n')
-
-        if select in _ARRAY_EX:
-            _ARRAY_EX[select]()
-        elif select == '0':
+        
+        select = str(input_number(text='Для выхода введите \'0\'\n', min=0, max=6))
+        if select == '0':
             break
         else:
-            print(get_text_color("Введен неверный номер задачи!", COLOR_FAIL))
+            _ARRAY_EX[select]()
 
         input('Для продолжения нажмите любую клавишу...')
 
