@@ -132,6 +132,7 @@ def input_string(text: str) -> str:
             return _string
 
 def action_add_book():
+    print(get_text_color('Добавить книгу в библиотеку', COLOR_WARNING))
     action_show_books()
     title = input_string("Введите название книги: ")
     book = Book.find_by_title(title)
@@ -155,6 +156,7 @@ def action_show_books():
             print(book)
 
 def action_check_fantasy():
+    print(get_text_color('Проверить является ли книга фантастикой', COLOR_WARNING))
     action_show_books()
     title = input_string("Введите название книги для проверки: ")
     is_fantasy = Book.is_fantasy(title)
@@ -166,6 +168,7 @@ def action_check_fantasy():
         print(get_text_color("Это не фантастика.", COLOR_FAIL))
 
 def action_add_fantasy_book():
+    print(get_text_color('Добавить книгу в жанре фантастика', COLOR_WARNING))
     action_show_books()
     title = input_string("Введите название книги: ")
     book = Book.find_by_title(f'фантастика {title}')
@@ -181,6 +184,7 @@ def action_add_fantasy_book():
         print(get_text_color("Фантастическая книга не добавлена!", COLOR_FAIL))
 
 def action_book_as_string():
+    print(get_text_color('Книга как строка', COLOR_WARNING))
     action_show_books()
     title = input_string("Введите название книги: ")
     book = Book.find_by_title(f'{title}')
@@ -194,6 +198,7 @@ def action_book_as_string():
     print("="*50 + "\n")
 
 def action_compare_books():
+    print(get_text_color('Сравнить книги', COLOR_WARNING))
     action_show_books()
     title1 = input_string("Введите название первой книги: ")
     book1 = Book.find_by_title(title1)
@@ -245,8 +250,8 @@ def main():
         {get_text_color(f'{_EX_5}) ', COLOR_WARNING)}Книга как строка
         {get_text_color(f'{_EX_6}) ', COLOR_WARNING)}Сравнить книги
         ''')
-        
-        select = str(input_number(text='Для выхода введите \'0\'\n', min=0, max=6))
+
+        select = str(int(input_number(text='Для выхода введите \'0\'\n', min=0, max=6)))
         if select == '0':
             break
         else:
